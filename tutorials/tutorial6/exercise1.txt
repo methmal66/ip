@@ -1,0 +1,5 @@
+i. x = floor(7.5)   -> 7
+ii. x = ceil (0.0)  -> 0
+iii. x = ceil (-6.4)    -> -6
+iv. x = log10(100.0)    -> 2.000000
+v.  x = ceil (floor (-5.5)) -> -6
