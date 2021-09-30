@@ -22,12 +22,12 @@ short input_natural_number(char name[]) {
   return value;
 }
 
-short input_if_need_additional_tour() {
+short need_additional_tour() {
   char answer;
   printf("Do you need any additional tours (y)es/(n)o>>> ");
   scanf(" %c", &answer);
   if (answer == 'y' || answer == 'Y') return 1;
   if (answer == 'n' || answer == 'N') return 0;
   puts("Invalid answer! Please try again...");
-  return input_if_need_additional_tour();
+  return need_additional_tour();
 }

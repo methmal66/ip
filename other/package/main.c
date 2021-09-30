@@ -15,8 +15,7 @@ int main(int argc, char *argv[]) {
   float total = charge_per_person * guests * days;
 
   while (1) {
-    short need_extra_tour = input_if_need_additional_tour();
-    if (need_extra_tour) {
+    if (need_additional_tour()) {
       short tour_option = input_option(
           "Input tour option 1)Safari/ 2)Bird Watching/ 3)Boat Ride/ 4)City "
           "Tour>>> ",
@@ -24,7 +23,7 @@ int main(int argc, char *argv[]) {
       Tour tour = find_relevent_tour(tour_option);
       total += tour.charge * guests;
     } else {
-      printf("Total Price : %.2f", total);
+      printf("Total Price : %.2f\n", total);
       break;
     }
   }

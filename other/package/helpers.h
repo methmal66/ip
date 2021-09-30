@@ -3,6 +3,6 @@
 
 short input_option(char[], short);
 short input_natural_number(char[]);
-short input_if_need_additional_tour();
+short need_additional_tour();
 
 #endif
