@@ -1,21 +1,14 @@
-// incompleted
-
 #include <stdio.h>
 
 int main() {
-  int pack_no, total_distance, amount;
+  int amount;
 
   while (1) {
-    char value;
-
-    printf("If you wannt to terminate the program enter n or N: ");
-    scanf(" %c", &value);
-
-    printf("Do you have more customers?");
-
+    int pack_no;
     printf("Package no(1,2,3,4): ");
     scanf("%d", &pack_no);
 
+    int total_distance;
     printf("Total distance: ");
     scanf("%d", &total_distance);
 
@@ -29,8 +22,14 @@ int main() {
       amount = (120.00) + ((total_distance - 1) * 130.00);
     } else {
       printf("Invalid Package Number \n");
+      break;
     }
+
+    char value;
+    printf("Do you have more customers? : ");
+    scanf(" %c", &value);
+    if (value != 'y' && value != 'Y') break;
   }
-  printf("Total Amount: Rs. %d", amount);
+  printf("Total Amount: Rs. %d\n", amount);
   return 0;
 }
