@@ -10,8 +10,6 @@ short find_quality_point(float average) {
 }
 
 int main(int argc, char *argv[]) {
-  printf("\033[0;32m [PASS] \033[0m");  // display PASS in green color
-  printf("find correct quality points\n");
   assert(find_quality_point(97) == 4);
   assert(find_quality_point(90) == 4);
   assert(find_quality_point(83) == 3);
@@ -20,6 +18,7 @@ int main(int argc, char *argv[]) {
   assert(find_quality_point(70) == 2);
   assert(find_quality_point(65) == 1);
   assert(find_quality_point(60) == 1);
-
+  printf("\033[0;32m [PASS] \033[0m");  // display PASS in green color
+  printf("find correct quality points\n");
   return 0;
 }
