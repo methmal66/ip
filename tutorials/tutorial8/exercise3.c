@@ -6,11 +6,11 @@ int main(int argc, char *argv[]) {
 
   // populate array motion with user inputs
   int motion[SIZE];
-  printf("Enter %hu numbers : ", SIZE);
-  scanf("%d %d %d %d", &motion[0], &motion[1], &motion[2], &motion[3]);
-  //   for (int i = 0; i < SIZE; i++) {
-  //     scanf("%d", &motion[i]);
-  //   }
+  printf("Enter %hu numbers : \n", SIZE);
+  for (int i = 0; i < SIZE; i++) {
+    printf("number%hu>>> ", i + 1);
+    scanf("%d", &motion[i]);
+  }
 
   // create a new reversed array outof motion
   int reversed_motion[SIZE];
@@ -18,6 +18,9 @@ int main(int argc, char *argv[]) {
     const int reversed_i = fabs(SIZE - i - 1);
     reversed_motion[reversed_i] = motion[i];
   }
+
+  // values are not displayed. instead use the debugger to find the reversed
+  // motion
 
   return 0;
 }
