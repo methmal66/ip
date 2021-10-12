@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 int main(int argc, char *argv[]) {
-  const short SIZE = 4;
+  const short SIZE = 5;
 
   // populate array motion with user inputs
   int motion[SIZE];
