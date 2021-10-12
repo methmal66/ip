@@ -24,6 +24,6 @@ void print_radian_values() {
   puts("Angle in degrees\tAngle in radians");
   const float degrees[] = {100, 120, 140, 160, 180, 200};
   for (int i = 0; i < 6; i++) {
-    printf("%0.f\t\t\t%.3f\n", degrees[i], find_radian_value(degrees[i]));
+    printf("%.0f\t\t\t%.3f\n", degrees[i], find_radian_value(degrees[i]));
   }
 }
