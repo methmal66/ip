@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 int main(int argc, char *argv[]) {
-  // input non predefined number of user inputs, assuming maximum is 1000
+  // input dynamic number of user inputs, assuming maximum is 1000
   short length = 0;
-  short bar_chart[6];
+  short bar_chart[1000];
   printf(
       "Enter values for the bar chart(enter a negative number to exit) : \n");
   while (1) {
