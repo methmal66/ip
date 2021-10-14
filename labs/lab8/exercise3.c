@@ -27,8 +27,8 @@ int main(int argc, char *argv[]) {
 }
 
 float find_max(float numbers[], int len) {
-  float current_max = -1;  // a small possible value
-  for (int i = 0; i < len - 1; i++) {
+  float current_max = numbers[0];
+  for (int i = 0; i < len; i++) {
     if (numbers[i] > current_max) {
       current_max = numbers[i];
     }
@@ -37,8 +37,8 @@ float find_max(float numbers[], int len) {
 }
 
 float find_min(float numbers[], int len) {
-  float current_min = 1000000;  // a large possible value
-  for (int i = 0; i < len - 1; i++) {
+  float current_min = numbers[0];
+  for (int i = 0; i < len; i++) {
     if (numbers[i] < current_min) {
       current_min = numbers[i];
     }
