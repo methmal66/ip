@@ -45,6 +45,11 @@ int input_unique_number(int nums[], int count) {
 
 void append_number_to_file(int num, char file_name[]) {
     FILE *file = fopen(file_name, "a");
+    if (file == NULL) {
+        printf("File %s not found!\n", file_name);
+        exit(EXIT_FAILURE);
+    }
+
     fprintf(file, "\n%d", num);
     fclose(file);
 }
