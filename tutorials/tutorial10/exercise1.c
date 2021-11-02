@@ -4,14 +4,14 @@
 int get_numbers_from_file(int[], char[]);
 int input_unique_number(int[], int);
 void append_number_to_file(int, char[]);
+void display_int_array(int[], int);
 
 int main(int argc, char const *argv[]) {
     int numbers[1000];
-    const int count = get_numbers_from_file(numbers, "number.dat");
-    while (1) {
-        const int num = input_unique_number(numbers, count);
-        append_number_to_file(num, "number.dat");
-    }
+    int count = get_numbers_from_file(numbers, "number.dat");
+    const int num = input_unique_number(numbers, count);
+    append_number_to_file(num, "number.dat");
+    display_int_array(numbers, count);
 
     return 0;
 }
@@ -52,4 +52,9 @@ void append_number_to_file(int num, char file_name[]) {
 
     fprintf(file, "\n%d", num);
     fclose(file);
+}
+
+void display_int_array(int nums[], int len) {
+    for (int i = 0; i < len; i++)
+        printf("%d\t", nums[i]);
 }
