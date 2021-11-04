@@ -8,40 +8,36 @@ typedef struct {
     float price_per_kg;
 } Item;
 
-Item input_item();
-void write_data_to_file(Item, char[]);
+void input_items(Item[], int);
+void write_data_to_file(Item[], int, char[]);
 
 int main() {
-    Item user_item = input_item();
-    write_data_to_file(user_item, "purchase.txt");
-    main();
+    const int COUNT = 2;
+    Item items[COUNT];
+    input_items(items, COUNT);
+    write_data_to_file(items, COUNT, "purchase.txt");
 }
 
-Item input_item() {
-    Item item;
-    printf("++++++Enter item++++++\n");
-    printf("ID\t\t>>> ");
-    scanf("%s", item.id);
-    printf("Name\t\t>>> ");
-    scanf("%s", item.name);
-    printf("Quantity\t>>> ");
-    scanf("%hu", &item.quantity);
-    printf("1Kg price\t>>> ");
-    scanf("%f", &item.price_per_kg);
-    printf("\n");
-    return item;
+void input_items(Item items[], int len) {
+    printf("Enter 5 items in the following format\n");
+    printf("id name quantity price(per kg)\n\n");
+
+    for (int i = 0; i < len; i++) {
+        printf("Item%d>>> ", i + 1);
+        scanf("%s %s %hu %f", items[i].id, items[i].name, &items[i].quantity, &items[i].price_per_kg);
+    }
 }
 
-void write_data_to_file(Item item, char file_name[]) {
+void write_data_to_file(Item items[], int len, char file_name[]) {
     FILE *file;
     file = fopen(file_name, "w");
     if (file == NULL) {
         printf("Unable to create the file\n");
-        exit(-1);
+        exit(EXIT_FAILURE);
     }
 
-    printf("\n");
-    fprintf(file, "%s\t%s\t%hu\t%.2f\n", item.id, item.name, item.quantity, item.price_per_kg);
+    for (int i = 0; i < len; i++)
+        fprintf(file, "%s\t%s\t%hu\t%.2f\n", items[i].id, items[i].name, items[i].quantity, items[i].price_per_kg);
 
     fclose(file);
 }
