@@ -43,9 +43,22 @@ int main() {
 
     };
 
+    char* line;
+    line = (char*)malloc(100 * sizeof(*line));
+    printf("Enter a line>>> ");
+    scanf("%s", line);
 
-    char* code = convertLetterToMorseCode('D', codes);
-    displayCode(code);
+    if (isInMorseCode(line)) {
+
+    }
+    else {
+        while (*line != '\0') {
+            char* code = convertLetterToMorseCode(*line++, codes);
+            displayCode(code);
+        }
+        printf("\n");
+    }
+    main();
 
 }
 
@@ -58,18 +71,16 @@ short isInMorseCode(char* line) {
 
 char* convertLetterToMorseCode(char letter, Code* codes) {
     while ((*codes).letter != '\n') {
-        if (letter == (*codes).letter) {
+        if (letter == (*codes).letter)
             return (*codes).morse;
-        }
         codes++;
     }
 }
 
 char convertMorseCodeToLetter(char* code, Code* codes) {
     while ((*codes).letter != '\n') {
-        if (strcmp(code, (*codes).morse)) {
+        if (strcmp(code, (*codes).morse))
             return (*codes).letter;
-        }
         codes++;
     }
 }
