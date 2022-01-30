@@ -10,7 +10,7 @@ typedef struct {
 short isInMorseCode(char*);
 char convertMorseCodeToLetter(char*, Code*);
 char* convertLetterToMorseCode(char, Code*);
-void displayCode(char*);
+char* splitIntoWords(char*);
 
 int main() {
     Code codes[] = {
@@ -43,23 +43,29 @@ int main() {
 
     };
 
-    char* line;
-    line = (char*)malloc(100 * sizeof(*line));
+    char* line = (char*)malloc(100 * sizeof(char*));
     printf("Enter a line>>> ");
-    scanf("%s", line);
+    scanf("%[^\t\n]", line);
 
     if (isInMorseCode(line)) {
-
-    }
-    else {
-        while (*line != '\0') {
-            char* code = convertLetterToMorseCode(*line++, codes);
-            displayCode(code);
+        char* token = strtok(line, " ");
+        while (token != NULL) {
+            char letter = convertMorseCodeToLetter(token, codes);
+            printf("%c", letter);
+            token = strtok(NULL, " ");
         }
         printf("\n");
     }
-    main();
 
+    else {
+        while (*line != '\0') {
+            char* code = convertLetterToMorseCode(*line++, codes);
+            printf("%s ", code);
+        }
+        printf("\n");
+    }
+
+    main();
 }
 
 short isInMorseCode(char* line) {
@@ -79,14 +85,21 @@ char* convertLetterToMorseCode(char letter, Code* codes) {
 
 char convertMorseCodeToLetter(char* code, Code* codes) {
     while ((*codes).letter != '\n') {
-        if (strcmp(code, (*codes).morse))
+        if (strcmp(code, (*codes).morse) == 0)
             return (*codes).letter;
         codes++;
     }
 }
 
-void displayCode(char* str) {
-    while (*str != '\0')
-        printf("%c", *str++);
-    printf(" ");
+char* splitIntoWords(char* line) {
+    char* currentWord;
+    short len = 0;
+    while (*line != '\0') {
+        currentWord = line;
+        currentWord++;
+        line++;
+        len++;
+    }
+    line = currentWord + 1;
+    return currentWord - len;
 }
