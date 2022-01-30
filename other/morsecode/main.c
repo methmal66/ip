@@ -1,15 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-typedef struct {
-    char letter;
-    char* morse;
-} Code;
-
-short isInMorseCode(char*);
-char convertMorseCodeToLetter(char*, Code*);
-char* convertLetterToMorseCode(char, Code*);
+#include "convert.h"
+#include "code.h"
+#include "check.h"
 
 int main() {
     Code codes[] = {
@@ -64,28 +58,6 @@ int main() {
         printf("\n");
     }
 
+    getchar();
     main();
-}
-
-short isInMorseCode(char* line) {
-    char firstChar = *line;
-    if (firstChar == '.' || firstChar == '-')
-        return 1;
-    return 0;
-}
-
-char* convertLetterToMorseCode(char letter, Code* codes) {
-    while ((*codes).letter != '\n') {
-        if (letter == (*codes).letter)
-            return (*codes).morse;
-        codes++;
-    }
-}
-
-char convertMorseCodeToLetter(char* code, Code* codes) {
-    while ((*codes).letter != '\n') {
-        if (strcmp(code, (*codes).morse) == 0)
-            return (*codes).letter;
-        codes++;
-    }
 }
