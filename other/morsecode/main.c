@@ -10,7 +10,6 @@ typedef struct {
 short isInMorseCode(char*);
 char convertMorseCodeToLetter(char*, Code*);
 char* convertLetterToMorseCode(char, Code*);
-char* splitIntoWords(char*);
 
 int main() {
     Code codes[] = {
@@ -89,17 +88,4 @@ char convertMorseCodeToLetter(char* code, Code* codes) {
             return (*codes).letter;
         codes++;
     }
-}
-
-char* splitIntoWords(char* line) {
-    char* currentWord;
-    short len = 0;
-    while (*line != '\0') {
-        currentWord = line;
-        currentWord++;
-        line++;
-        len++;
-    }
-    line = currentWord + 1;
-    return currentWord - len;
 }
